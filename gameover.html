@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ahmed's Frogger Clone</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <h1>Game Over!<h1>
+    <h1 id="score">Final Score: </h1>
+    <br>
+      <button type="button" name="button" id="home"><h3>Go to Main Screen</h3></button>
+      <br>
+      <br>
+      <button type="button" name="button" id="game"><h3>Try Again</h3></button>
+    <script type="text/javascript">
+      document.getElementById('home').addEventListener("click", function(){
+        window.location = "index.html";
+      });
+      document.getElementById('game').addEventListener("click", function(){
+        window.location = "game.html";
+      });
+      document.getElementById('score').innerHTML = "Final Score: " + window.location.search.substring(1);
+    </script>
+  </body>
+</html>
