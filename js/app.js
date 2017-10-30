@@ -39,19 +39,29 @@ var Player = function() {
   this.y = 404;
   this.h = 0;
   this.v = 0;
+  this.score = 0;
+  this.lives = 3;
 };
 
 Player.prototype.update = function(dt) {
+
   var hmove = this.h*101;
   var vmove = this.v*83;
 
   this.x += hmove;
   this.y += vmove;
+
   if(this.x < 0 || this.x > 404)
     this.x -= hmove;
   if(this.y < -83 || this.y > 404){
       this.y -= vmove;
   }
+  if(this.y < 0){
+      this.score++;
+      document.getElementById("score").innerHTML = "Score: "+this.score;
+      setTimeout(restart, 10);
+  }
+
   this.v = 0;
   this.h = 0;
 };
@@ -99,14 +109,6 @@ var restart = function() {
     player.y = 404;
 }
 
-var checkWin = function() {
-  if(player.y < 0){
-    setTimeout(restart, 100);
-    return true;
-  }
-  return false;
-}
-
 var intersects = function(a1x, a1y, a2x, a2y, b1x, b1y, b2x, b2y) {
   if(a1x > b2x || b1x > a2x)
     return false;
@@ -118,11 +120,23 @@ var intersects = function(a1x, a1y, a2x, a2y, b1x, b1y, b2x, b2y) {
 var checkCollisions = function() {
   for(var i=0; i<allEnemies.length; i++){
     if(intersects(player.x, player.y, player.x+64, player.y+64, allEnemies[i].x, allEnemies[i].y, allEnemies[i].x+84, allEnemies[i].y+64)){
-      setTimeout(restart, 100);
+      player.lives--;
+      checkLife();
+      document.getElementById("lives").innerHTML = player.lives;
+      setTimeout(restart, 10);
       break;
     }
   }
 }
+
+var checkLife = function(){
+  if(player.lives < 1){
+    // Game over
+    player.lives = 3;
+    restart();
+  }
+}
+
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
