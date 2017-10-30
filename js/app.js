@@ -132,8 +132,7 @@ var checkCollisions = function() {
 var checkLife = function(){
   if(player.lives < 1){
     // Game over
-    player.lives = 3;
-    restart();
+    window.location = "gameover.html?"+player.score;
   }
 }
 
