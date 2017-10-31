@@ -34,7 +34,8 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function() {
-  this.sprite = 'images/char-boy.png';
+
+  this.sprite = localStorage.getItem('sprite');
   this.x = 202;
   this.y = 404;
   this.h = 0;
@@ -132,7 +133,8 @@ var checkCollisions = function() {
 var checkLife = function(){
   if(player.lives < 1){
     // Game over
-    window.location = "gameover.html?"+player.score;
+    localStorage.setItem('score', player.score);
+    window.location = "gameover.html";
   }
 }
 

@@ -20,7 +20,7 @@
       document.getElementById('game').addEventListener("click", function(){
         window.location = "game.html";
       });
-      document.getElementById('score').innerHTML = "Final Score: " + window.location.search.substring(1);
+      document.getElementById('score').innerHTML = "Final Score: " + localStorage.getItem('score');
     </script>
   </body>
 </html>

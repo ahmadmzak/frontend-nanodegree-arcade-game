@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Effective JavaScript: Frogger</title>
+  <head>
+    <meta charset="utf-8">
+    <title>Ahmed's Frogger Clone</title>
     <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <div class="container">
-    <div class="score">
-      <h1 id="score">Score: 0</h1>
-    </div>
-    <div class="lives">
-      <img class="heart" src="images/Heart.png">
-      <h1 id="lives">3</h1>
-    </div>
-  </div>
-  <hr>
-  <script src="js/resources.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/engine.js"></script>
-</body>
+  </head>
+  <body>
+    <h1>Choose a character to start game</h1>
+    <img id="boy" src="images/char-boy.png" alt="">
+    <img id="cat" src="images/char-cat-girl.png" alt="">
+    <img id="horn" src="images/char-horn-girl.png" alt="">
+    <img id="pink" src="images/char-pink-girl.png" alt="">
+    <img id="princess" src="images/char-princess-girl.png" alt="">
+    <script type="text/javascript">
+      var area = document.getElementsByTagName('body')[0];
+      var chars = [document.getElementById('boy'),
+        document.getElementById('cat'),
+        document.getElementById('horn'),
+        document.getElementById('pink'),
+        document.getElementById('princess')];
+
+      area.addEventListener("mouseover", function(evt){
+        if(evt.target.tagName == 'IMG')
+          evt.target.style.border = "solid red 1px";
+      });
+      area.addEventListener("mouseout", function(evt){
+        if(evt.target.tagName == 'IMG')
+          evt.target.style.border = "none";
+      });
+      area.addEventListener("click", function(evt){
+        if(evt.target.tagName == 'IMG'){
+          var start = evt.target.src.search('images');
+          localStorage.setItem('sprite', evt.target.src.substring(start));
+          window.location = "game.html";
+        }
+      });
+    </script>
+  </body>
 </html>
