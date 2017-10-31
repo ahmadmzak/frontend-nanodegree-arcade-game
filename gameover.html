@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Ahmed's Frogger Clone</title>
     <link rel="stylesheet" href="css/style.css">
-    <audio autoplay loop src="audio/bensound-ofeliasdream.mp3"></audio>
+    <audio id="bgm-end" autoplay loop src="audio/bensound-ofeliasdream.mp3"></audio>
   </head>
   <body>
     <h1>Game Over!<h1>
@@ -16,8 +16,9 @@
       <button type="button" name="button" id="game"><h3>Try Again</h3></button>
       <br>
       <br>
-      <div><em>Music: https://bensound.com</em></div>
+      <div><em>Music: https://www.bensound.com</em></div>
     <script type="text/javascript">
+      document.getElementById('bgm-end').volume = "0.3";
       document.getElementById('home').addEventListener("click", function(){
         window.location = "index.html";
       });

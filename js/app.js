@@ -1,3 +1,5 @@
+document.getElementById('bgm').volume = "0.2";
+
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
@@ -147,5 +149,6 @@ document.addEventListener('keyup', function(e) {
         39: 'right',
         40: 'down'
     };
+    //setTimeout(player.handleInput(allowedKeys[e.keyCode]), 300);
     player.handleInput(allowedKeys[e.keyCode]);
 });

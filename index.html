@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Ahmed's Frogger Clone</title>
     <link rel="stylesheet" href="css/style.css">
-    <audio autoplay loop src="audio/bensound-epic.mp3"></audio>
+    <audio id="bgm-op" autoplay loop src="audio/bensound-epic.mp3"></audio>
   </head>
   <body>
     <h1>Choose a character to start game</h1>
@@ -13,7 +13,7 @@
     <img id="horn" src="images/char-horn-girl.png" alt="">
     <img id="pink" src="images/char-pink-girl.png" alt="">
     <img id="princess" src="images/char-princess-girl.png" alt="">
-    <div><em>Music: https://bensound.com</em></div>
+    <div><em>Music: https://www.bensound.com</em></div>
     <script type="text/javascript">
       var area = document.getElementsByTagName('body')[0];
       var chars = [document.getElementById('boy'),
@@ -21,7 +21,7 @@
         document.getElementById('horn'),
         document.getElementById('pink'),
         document.getElementById('princess')];
-
+      document.getElementById('bgm-op').volume = "0.3";
       area.addEventListener("mouseover", function(evt){
         if(evt.target.tagName == 'IMG')
           evt.target.style.border = "solid red 1px";
