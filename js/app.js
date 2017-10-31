@@ -55,7 +55,7 @@ Player.prototype.update = function(dt) {
   if(this.x < 0 || this.x > 404)
     this.x -= hmove;
   if(this.y < -83 || this.y > 404){
-      this.y -= vmove;
+    this.y -= vmove;
   }
   if(this.y < 0){
       this.score++;
@@ -147,6 +147,5 @@ document.addEventListener('keyup', function(e) {
         39: 'right',
         40: 'down'
     };
-
     player.handleInput(allowedKeys[e.keyCode]);
 });
